@@ -68,13 +68,100 @@ Variance , Standard Deviation , Confidence Interval , Pearson Correlation Coeffi
 """
 Variance is a measure of dispersion, 
 meaning it is a measure of how far a set of numbers is spread out from their average value.
+
 More mathematical sentence;
+
 Subtract the mean from each value,
 Square each of the resulting values,
 then sum all values.
 
+There is a variance formula in the link below.
+https://raw.githubusercontent.com/bunyaminergen/how_to_code_math_equations/main/variance.svg
+
+S2  =  sample variance  (S exponent 2)
+Xi  =  the value of the one observation
+x̄   =  the mean value of all observations
+n   =  the number of observations
+Σ   =  the summation symbol i.e. sum of observations (The upper case letter sigma)
+
+Below subtract all values from the mean with a for loop. 
+And square all the values and add them all.
+Finally, subtract 1 from the sample number and divide by the total number we find.
 """
 
+var_sample = random.normal(size = 11)
 
+var_n = len(var_sample)
 
+var_mean = sum(var_sample) / len(var_sample)
+
+var = sum((var_i - var_mean)**2 for var_i in var_sample) / (var_n - 1)
+
+"""
+I am adding the stages of the above code to the below so that it can be followed easily.
+
+var =                           for var_i in var_sample                 # get the values with for loop
+var =      var_i - var_mean     for var_i in var_sample                 # subtract all values from the mean
+var =     (var_i - var_mean)**2 for var_i in var_sample                 # square all subtracted values
+var = sum((var_i - var_mean)**2 for var_i in var_sample)                # add up all squared values
+var = sum((var_i - var_mean)**2 for var_i in var_sample) / (var_n-1)    # Divide add up all squared values by the number of sample values minus 1.
+"""
+########################################################################################################################
+########################################################################################################################
+# Standard Deviation (Sample)
+########################################################################################################################
+########################################################################################################################
+"""
+Standard deviation is a measure of the amount of variation or dispersion of a set of values.
+
+https://raw.githubusercontent.com/bunyaminergen/how_to_code_math_equations/905d939b13d8ba0a8c1012f72c260032e4b8295c/sample_standard_deviation.svg
+
+If look closely at the equation in the link above, 
+can see that the standard deviation is actually the square root of the variance.
+
+s  =  sample standard deviation
+N  =  the number of observations
+x̄  =  the observed values of a sample item
+Σ  =  the summation symbol i.e. sum of observations (The upper case letter sigma)
+"""
+std = (sum((var_i - var_mean)**2 for var_i in var_sample) / (var_n - 1))**0.5
+
+# or
+
+var**0.5 # exponent 0.5 means square root
+
+# or
+
+import math
+
+math.sqrt(var)
+
+########################################################################################################################
+########################################################################################################################
+# Confidence Interval
+########################################################################################################################
+########################################################################################################################
+"""
+Confidence interval (CI) is a range of estimates for an unknown parameter. 
+A confidence interval is computed at a designated confidence level; 
+the 95% confidence level is most common, but other levels, such as 90% or 99%, are sometimes used. 
+The confidence level represents the long-run proportion of corresponding CIs that contain the true value of the parameter. 
+For example, out of all intervals computed at the 95% level, 95% of them should contain the parameter's true value. 
+
+More mathematical sentence;
+
+Confidence Interval is the sample mean minus/plus the z-score multiply the standard deviation divided by the square root of the sample size.
+
+https://raw.githubusercontent.com/bunyaminergen/how_to_code_math_equations/bb808b792d837685a340ac2fb8dc037860bcc455/confidence_interval.svg
+
+CI =  confidence interval
+
+x̄  =  sample mean
+
+z  =  confidence level value (z-score)
+
+s  =  sample standard deviation
+
+n  =  sample size
+"""
 
