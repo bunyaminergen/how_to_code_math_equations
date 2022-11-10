@@ -12,7 +12,7 @@ Intermediate
 Advanced
 Quantum :) (Maybe)
 
-Respectively;
+in order;
 simple math operations,
 equations with one unknown,
 variance and standard deviation, confidence interval and Pearson correlation coefficient.
